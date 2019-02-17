@@ -15,8 +15,11 @@ export class UserBaseService extends ApiServiceService {
    
    }
 
-  getCpuUsage(): Observable<any>{
-    return this.http.get('http://localhost:3000/api/v1/getCpuUsage',this.get())
-    .pipe(map(res => res.json()),catchError(err=>  throwError(err)))
+  getCpuUsage(data): Observable<any>{
+    return this.http.get('http://localhost:3000/api/v1/getCpuUsage',{
+  params:{
+    sendmail:data
+  }
+  }).pipe(map(res => res.json()),catchError(err=>  throwError(err)))
   }
 }
