@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.cpuUsage.push([i, 0]);
     }
     setInterval(() => {
-      this.userBaseService.getCpuUsage(this.sendmail > 10 ?1:0).subscribe(res => {
+      this.userBaseService.getCpuUsage(this.sendmail >= 10 ?1:0).subscribe(res => {
         if (res) {
           if (this.cpuUsage.length >= 61) {
             this.cpuUsage.shift();
